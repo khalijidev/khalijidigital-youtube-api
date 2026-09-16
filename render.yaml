@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: khalijidigital-youtube-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      - key: KD_MAX_SECONDS
+        value: "600"
+      - key: KD_JOB_TTL
+        value: "900"
+      - key: KD_MAX_FILESIZE
+        value: "200M"
+      - key: KD_ALLOWED_ORIGINS
+        value: "https://khalijidigital.my.id,https://www.khalijidigital.my.id"
+      # Optional: set a secret to prevent third-party abuse.
+      - key: KD_YOUTUBE_API_KEY
+        sync: false
